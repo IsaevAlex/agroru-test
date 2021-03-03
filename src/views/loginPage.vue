@@ -13,7 +13,6 @@
 </template>
 
 <script>
-    import {mapActions} from 'vuex';
     export default {
         name: 'loginPage',
         data(){
@@ -23,16 +22,14 @@
             }
         },
         methods: {
-            ...mapActions([
-                'LOGIN_USER'
-            ]),
             login() {
                 let loginData = {
                     email: this.email,
                     password: this.password
                 };
-                this.LOGIN_USER(loginData).then(() => this.$router.push('/'))
-                    .catch(err => console.log(err))
+                this.$store.dispatch('LOGIN_USER', loginData).then(() => {
+                    this.$router.push('/user')
+                })
             }
         }
     }
