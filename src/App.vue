@@ -1,9 +1,21 @@
 <template>
   <div id="app">
-    <router-view/>
+    <component :is="layout">
+      <router-view/>
+    </component>
   </div>
 </template>
 
-<style lang="scss">
+<script>
+  export default {
+    computed: {
+      layout(){
+        return this.$route.meta.layout || 'main-layout' ;
+      }
+    }
+  }
+</script>
 
+<style lang="scss">
+  @import "@/assets/styles/main";
 </style>
