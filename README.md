@@ -1,7 +1,7 @@
 # agroru-test
-####Test task for Agroru
+#### Test task for Agroru
 
-##Features
+## Features
 - User authorization
 - Editing a profile
   
