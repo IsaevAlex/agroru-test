@@ -17,5 +17,5 @@ jobs:
           port: ${{ secrets.DEPLOY_SERVER_PORT }}
           rm: true
           source: "*"
-          target: "/usr/share/nginx"
+          target: "/usr/share/nginx/"
 
