@@ -16,6 +16,8 @@ jobs:
           password: ${{ secrets.DEPLOY_SERVER_PASSWORD }}
           port: ${{ secrets.DEPLOY_SERVER_PORT }}
           rm: true
+          debug: true
+          overwrite: true
           source: "*"
           target: "/usr/share/nginx/"
 
