@@ -8,6 +8,14 @@ jobs:
  deploy_project:
     runs-on: ubuntu-latest
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          mkdir ../build
+          cp -TR . ../build
+          tar -cvf deploy.tar ../build/
       - name: copy file via ssh password
         uses: appleboy/scp-action@master
         with:
@@ -18,6 +26,6 @@ jobs:
           rm: true
           debug: true
           overwrite: true
-          source: "*"
+          source: "deploy.tar"
           target: "/usr/share/nginx/"
 
