@@ -1,6 +1,8 @@
-name: CI
+name: DEPLOY_AGRORU_TEST
 
-on: [push]
+on:
+  push:
+    branches: [ master ]
 
 env:
   DEPLOY_PATH: /usr/share/nginx
@@ -37,37 +39,3 @@ jobs:
           strip_components: 1
       - name: Print Info
         run: echo "Deployed at https://${BRANCH_NAME}.app.example.ru/"
-
-
-
-
-# name: DEPLOY_FLEETDEV
-
-# on:
-#  push:
-#   branches: [ master ]
-# jobs:
-#  deploy_project:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - uses: actions/checkout@v1
-#     - name: Install Node.js
-#       uses: actions/setup-node@v1
-#       with:
-#        node-version: '10.x'
-#     - name: Install npm dependencies
-#       run: npm install
-#     - name: Run build task
-#       run: npm run build --if-present
-#     - name: Deploy to Server
-#       uses: easingthemes/ssh-deploy@v2.1.5
-#       env:
-#          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
-#          ARGS: "-rltgoDzvO --delete"
-#          SOURCE: "dist/"
-#          REMOTE_HOST: ${{ secrets.DEPLOY_SERVER_HOST }}
-#          REMOTE_USER: ${{ secrets.DEPLOY_SERVER_USERNAME }}
-#          TARGET: ${{ secrets.DEPLOY_REMOTE_TARGET }}
-#          EXCLUDE: "/dist/, /node_modules/"
-
-
