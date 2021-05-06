@@ -1,0 +1,19 @@
+
+name: DEPLOY_FLEETDEV
+
+on:
+ push:
+  branches: [ master ]
+jobs:
+ build_project:
+  runs-on: ubuntu-latest
+   steps:
+    - name: Checkout Repo
+    - uses: actions/checkout@master
+    - name: Install Packages and Build Application
+    - uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - run: npm install
+    - run: npm build
+
