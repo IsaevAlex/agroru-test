@@ -24,5 +24,5 @@ jobs:
           password: ${{ secrets.DEPLOY_SERVER_PASSWORD }}
           port: ${{ secrets.DEPLOY_SERVER_PORT }}
           source: "deploy.tar"
-          target: "/usr/share/nginx/"
+          target: "/usr/share/nginx"
 
